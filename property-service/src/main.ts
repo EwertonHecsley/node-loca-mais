@@ -1,4 +1,4 @@
-import 'dotenv/config';
-import { App } from './App';
+import 'dotenv/config'
+import { App } from './App'
 
-new App().bootstrap();
+new App().bootstrap()
