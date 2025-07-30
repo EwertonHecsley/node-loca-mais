@@ -1,5 +1,5 @@
-import { Property } from "../entity/Property";
+import { Property } from '../entity/Property'
 
 export abstract class PropertyGateway {
-    abstract create(entity: Property): Promise<Property>;
+  abstract create(entity: Property): Promise<Property>
 }
