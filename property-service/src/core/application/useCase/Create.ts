@@ -16,6 +16,7 @@ type addresProps = {
 
 type RequestProperty = {
   description: string
+  price: number
   photos: string[]
   address: addresProps
 }
@@ -33,6 +34,7 @@ export class CreatePropertyUseCase {
     }
 
     const property = propertyOrError.value
+
     const createdProperty = await this.propertyRepository.create(property)
 
     return right(createdProperty)

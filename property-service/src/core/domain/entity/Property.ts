@@ -23,7 +23,7 @@ export class Property extends Entity<PropertyProps> {
     this.validateAddress(props.address)
     this.validatePrice(props.price)
 
-    return new Property(props, id);
+    return new Property(props, id)
   }
 
   get description(): string {
