@@ -2,16 +2,16 @@ import { BadRequest } from '@/shared/errors/custom/BadRequest'
 import { Either, left, right } from '@/shared/utils/Either'
 
 export type AddressProps = {
-  street: string;
-  number: string;
-  district: string;
-  city: string;
-  state: string;
-  zipCode: string;
+  street: string
+  number: string
+  district: string
+  city: string
+  state: string
+  zipCode: string
 }
 
 export class Address {
-  private constructor(private props: AddressProps) { }
+  private constructor(private props: AddressProps) {}
 
   static create(props: AddressProps): Either<BadRequest, Address> {
     if (!props.street || props.street.trim() === '') {

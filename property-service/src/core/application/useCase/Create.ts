@@ -1,6 +1,5 @@
 import { Property } from '@/core/domain/entity/Property'
 import { PropertyGateway } from '@/core/domain/gateway/PropertyGateway'
-import { Address } from '@/core/domain/objectValue/Address'
 import { BadRequest } from '@/shared/errors/custom/BadRequest'
 import { Either, left, right } from '@/shared/utils/Either'
 import { CreatePropertyFactory } from './factory/CreatePropertyFactory'

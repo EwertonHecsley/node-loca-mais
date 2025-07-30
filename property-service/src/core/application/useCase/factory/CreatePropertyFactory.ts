@@ -4,28 +4,29 @@ import { BadRequest } from '@/shared/errors/custom/BadRequest'
 import { Either, left, right } from '@/shared/utils/Either'
 
 type CreatePropertyDTO = {
-  description: string;
-  price: number;
-  photos: string[];
+  description: string
+  price: number
+  photos: string[]
   address: {
-    street: string;
-    number: string;
-    district: string;
-    city: string;
-    state: string;
-    zipCode: string;
+    street: string
+    number: string
+    district: string
+    city: string
+    state: string
+    zipCode: string
   }
 }
 
 export class CreatePropertyFactory {
   static create(dto: CreatePropertyDTO): Either<BadRequest, Property> {
-    const { description, photos, address, price } = dto;
+    const { description, photos, address, price } = dto
 
-    if (!description) return left(new BadRequest('Description is required.'));
+    if (!description) return left(new BadRequest('Description is required.'))
 
-    if (!photos || photos.length === 0) return left(new BadRequest('At least one photo is required.'));
+    if (!photos || photos.length === 0)
+      return left(new BadRequest('At least one photo is required.'))
 
-    if (!address) return left(new BadRequest('Address is required.'));
+    if (!address) return left(new BadRequest('Address is required.'))
 
     const createdAddress = Address.create(address)
     if (createdAddress.isLeft()) {
@@ -33,7 +34,7 @@ export class CreatePropertyFactory {
     }
 
     if (typeof price !== 'number' || isNaN(price) || price < 0) {
-      return left(new BadRequest('Invalid price value.'));
+      return left(new BadRequest('Invalid price value.'))
     }
 
     const property = Property.create({
@@ -43,6 +44,6 @@ export class CreatePropertyFactory {
       address: createdAddress.value,
     })
 
-    return right(property);
+    return right(property)
   }
 }
