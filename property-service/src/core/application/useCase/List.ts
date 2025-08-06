@@ -13,7 +13,7 @@ export class ListAllPropertyUseCase {
       const properties = await this.propertyRepository.listAll({ page, limit })
       return right(properties)
     } catch (error) {
-      return left(new InternalServerErrorException('Failed to list properties.'))
+      return left(new InternalServerErrorException(`Failed to list properties: ${String(error)}`))
     }
   }
 }
