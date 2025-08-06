@@ -1,3 +1,5 @@
+import { Readable } from 'stream'
+
 export abstract class UploadFileGateway {
-    abstract uploadFile(filePath: string, destinationPath: string): Promise<string>;
+  abstract uploadFile(stream: Readable, fileName: string, destinationPath: string): Promise<string>
 }
