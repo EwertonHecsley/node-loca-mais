@@ -11,7 +11,7 @@ export type AddressProps = {
 }
 
 export class Address {
-  private constructor(private props: AddressProps) {}
+  private constructor(private readonly props: AddressProps) {}
 
   static create(props: AddressProps): Either<BadRequest, Address> {
     if (!props.street || props.street.trim() === '') {

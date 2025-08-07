@@ -5,8 +5,8 @@ import { Storage } from '@google-cloud/storage'
 import { Readable } from 'stream'
 
 export class UploadFileCloud implements UploadFileGateway {
-  private storage: Storage
-  private bucketName: string
+  private readonly storage: Storage
+  private readonly bucketName: string
 
   constructor() {
     this.storage = new Storage()
@@ -35,8 +35,9 @@ export class UploadFileCloud implements UploadFileGateway {
         stream
           .pipe(writeStream)
           .on('error', (err) => {
-            logger.error(`Erro no stream: ${err}`)
-            reject(err)
+            const rejectionError = err instanceof Error ? err : new Error(String(err))
+            logger.error(`Erro no stream: ${rejectionError.message}`)
+            reject(rejectionError)
           })
           .on('finish', resolve)
       })

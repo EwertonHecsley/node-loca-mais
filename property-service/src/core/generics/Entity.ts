@@ -1,7 +1,7 @@
 import Identity from './Identity'
 
 export default class Entity<T> {
-  private valueIdentity: Identity
+  private readonly valueIdentity: Identity
   protected props: T
 
   protected constructor(props: T, id?: Identity) {
