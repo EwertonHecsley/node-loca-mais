@@ -1,15 +1,20 @@
 import Identity from '@/core/generics/Identity'
 import * as crypto from 'crypto'
 
+jest.mock('crypto', () => ({
+  ...jest.requireActual('crypto'),
+  randomUUID: jest.fn(),
+}))
+
 describe('Identity', () => {
   const MOCK_UUID = 'mock-uuid-123-abc-456'
 
   beforeEach(() => {
-    jest.spyOn(crypto, 'randomUUID').mockReturnValue(MOCK_UUID)
+    ;(crypto.randomUUID as jest.Mock).mockReturnValue(MOCK_UUID)
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    jest.clearAllMocks()
   })
 
   describe('constructor', () => {
