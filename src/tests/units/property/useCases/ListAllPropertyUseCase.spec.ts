@@ -56,7 +56,7 @@ describe('ListAllPropertyUseCase', () => {
     expect(result.isLeft()).toBe(true)
     expect(result.value).toBeInstanceOf(InternalServerErrorException)
     expect((result.value as InternalServerErrorException).message).toContain(
-      'Failed to list properties: Error: Database connection failed'
+      'Failed to list properties: Error: Database connection failed',
     )
   })
 })
