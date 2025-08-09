@@ -1,6 +1,6 @@
-import pino, { LoggerOptions } from 'pino';
+import pino, { LoggerOptions } from 'pino'
 
-const loggerConfig: LoggerOptions = {};
+const loggerConfig: LoggerOptions = {}
 
 if (process.env.NODE_ENV !== 'production') {
   loggerConfig.transport = {
@@ -10,9 +10,9 @@ if (process.env.NODE_ENV !== 'production') {
       translateTime: 'yyyy-mm-dd HH:MM:ss',
       ignore: 'pid,hostname',
     },
-  };
+  }
 }
 
-const logger = pino(loggerConfig);
+const logger = pino(loggerConfig)
 
-export default logger;
+export default logger
