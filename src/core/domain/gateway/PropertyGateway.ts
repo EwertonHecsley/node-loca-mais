@@ -16,4 +16,5 @@ export abstract class PropertyGateway {
   abstract create(entity: Property): Promise<Property>
   abstract listAll(params: FindAllParams): Promise<PaginatedResponse<Property>>
   abstract findById(id: string): Promise<Property | null>
+  abstract delete(id: string): Promise<void>
 }

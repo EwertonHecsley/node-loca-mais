@@ -47,6 +47,7 @@ describe('FindPropertyUseCase', () => {
       create: jest.fn(),
       findById: jest.fn(),
       listAll: jest.fn(),
+      delete: jest.fn(),
     }
 
     findPropertyUseCase = new FindPropertyUseCase(mockPropertyRepository)
