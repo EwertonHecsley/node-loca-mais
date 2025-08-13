@@ -58,11 +58,11 @@ describe('CreatePropertyUseCase', () => {
   })
 
   beforeEach(() => {
-    // Mock do PropertyGateway
     mockPropertyRepository = {
       create: jest.fn(),
       findById: jest.fn(),
       listAll: jest.fn(),
+      delete: jest.fn(),
     }
 
     createPropertyUseCase = new CreatePropertyUseCase(mockPropertyRepository)
